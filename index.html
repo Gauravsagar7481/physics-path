@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PhysicsPath — Engineering Physics, Zero to Mastery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a href="index.html" class="brand">
+        <span class="brand-mark">Δ</span> PhysicsPath
+      </a>
+      <nav class="main-nav">
+        <a href="index.html" class="active">Home</a>
+        <a href="syllabus.html">Syllabus</a>
+        <a href="chat.html">AI Helper</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap hero-inner">
+        <p class="hero-eyebrow">B.Tech Engineering Physics — Bihar Engineering University pattern</p>
+        <h1>Physics doesn't have to feel<br>like a foreign language.</h1>
+        <p class="hero-sub">Every topic from your semester syllabus, explained from absolute zero up to
+        exam-topper depth — plus the extra ideas your textbook skips. Built for one student,
+        shared with everyone learning the same way.</p>
+        <div class="hero-actions">
+          <a href="syllabus.html" class="btn btn-primary">Start learning</a>
+          <a href="chat.html" class="btn btn-ghost">Ask the AI helper</a>
+        </div>
+      </div>
+      <svg class="hero-wave" viewBox="0 0 1200 200" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0,120 C150,40 300,200 450,120 C600,40 750,200 900,120 C1050,40 1150,150 1200,120"
+              fill="none" stroke="currentColor" stroke-width="2"/>
+        <path d="M0,150 C150,90 300,210 450,150 C600,90 750,210 900,150 C1050,90 1150,180 1200,150"
+              fill="none" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+      </svg>
+    </section>
+
+    <!-- HOW LEVELS WORK -->
+    <section class="levels wrap">
+      <h2>Four depths, one topic</h2>
+      <p class="section-sub">Open any chapter and pick how deep you want to go today.</p>
+      <div class="level-grid">
+        <div class="level-card">
+          <span class="level-tag lvl-0">Level 0</span>
+          <h3>What & Why</h3>
+          <p>Plain-language intuition before a single equation shows up.</p>
+        </div>
+        <div class="level-card">
+          <span class="level-tag lvl-1">Level 1</span>
+          <h3>Exam Ready</h3>
+          <p>Definitions, derivations and solved problems the way BEU asks them.</p>
+        </div>
+        <div class="level-card">
+          <span class="level-tag lvl-2">Level 2</span>
+          <h3>Beyond Syllabus</h3>
+          <p>The deeper "why it actually works" — connects to real devices and research.</p>
+        </div>
+        <div class="level-card">
+          <span class="level-tag lvl-3">Level Max</span>
+          <h3>Go Deeper</h3>
+          <p>Advanced reading, current applications, and where this topic leads next.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEMESTER GRID (populated from js/data/physics-syllabus.js) -->
+    <section class="semesters wrap">
+      <h2>Full syllabus, semester by semester</h2>
+      <p class="section-sub">Engineering Physics + Waves &amp; Optics topics, mapped to the BEU course structure.</p>
+      <div id="semester-grid" class="semester-grid"><!-- filled by main.js --></div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Built by an engineering student, for engineering students. Open source on GitHub.</p>
+    </div>
+  </footer>
+
+  <script src="js/data/physics-syllabus.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
