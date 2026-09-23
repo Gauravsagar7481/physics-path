@@ -1,0 +1,241 @@
+/* ============================================
+   PhysicsPath — base styles
+   ============================================ */
+
+:root {
+  --bg:        #10121C;
+  --bg-raised: #181B29;
+  --bg-card:   #1E2233;
+  --line:      #2C3049;
+  --text:      #EDEAE0;
+  --text-dim:  #A6A9BC;
+  --accent:    #E8A33D;
+  --accent-2:  #6E8CFF;
+  --font-head: 'Fraunces', Georgia, serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+a { color: inherit; text-decoration: none; }
+
+h1, h2, h3 {
+  font-family: var(--font-head);
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 0 0 0.5em;
+}
+
+.site-header {
+  border-bottom: 1px solid var(--line);
+  background: rgba(16,18,28,0.9);
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(6px);
+  z-index: 10;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.brand {
+  font-family: var(--font-head);
+  font-size: 1.25rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.brand-mark {
+  color: var(--accent);
+  font-size: 1.4rem;
+}
+
+.main-nav {
+  display: flex;
+  gap: 28px;
+  font-size: 0.95rem;
+}
+
+.main-nav a {
+  color: var(--text-dim);
+  border-bottom: 2px solid transparent;
+  padding-bottom: 4px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+  color: var(--text);
+  border-color: var(--accent);
+}
+
+.hero {
+  position: relative;
+  padding: 96px 0 64px;
+  overflow: hidden;
+}
+
+.hero-inner { max-width: 680px; }
+
+.hero-eyebrow {
+  color: var(--accent);
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin: 0 0 16px;
+}
+
+.hero h1 {
+  font-size: clamp(2.1rem, 4.5vw, 3.2rem);
+  color: var(--text);
+}
+
+.hero-sub {
+  color: var(--text-dim);
+  font-size: 1.05rem;
+  max-width: 560px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #1B1400;
+}
+
+.btn-primary:hover { transform: translateY(-1px); }
+
+.btn-ghost {
+  border: 1px solid var(--line);
+  color: var(--text);
+}
+
+.btn-ghost:hover { border-color: var(--accent-2); }
+
+.hero-wave {
+  position: absolute;
+  right: -5%;
+  bottom: -20px;
+  width: 55%;
+  height: auto;
+  color: var(--accent-2);
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.levels { padding: 64px 0; border-top: 1px solid var(--line); }
+
+.section-sub {
+  color: var(--text-dim);
+  margin-top: -8px;
+  margin-bottom: 32px;
+}
+
+.level-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.level-card {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.level-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 100px;
+  margin-bottom: 12px;
+}
+
+.lvl-0 { background: #2A3B2E; color: #8FD19E; }
+.lvl-1 { background: #2A2F3B; color: var(--accent-2); }
+.lvl-2 { background: #3B2F1F; color: var(--accent); }
+.lvl-3 { background: #3B1F2C; color: #F07E9E; }
+
+.level-card h3 { font-size: 1.05rem; margin-bottom: 6px; }
+.level-card p { color: var(--text-dim); font-size: 0.9rem; margin: 0; }
+
+.semesters { padding: 64px 0 96px; border-top: 1px solid var(--line); }
+
+.semester-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.semester-card {
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 20px 22px;
+  transition: border-color 0.15s ease;
+}
+
+.semester-card:hover { border-color: var(--accent-2); }
+
+.semester-card h3 {
+  font-size: 1rem;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.semester-card p {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 28px 0;
+  color: var(--text-dim);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 720px) {
+  .level-grid { grid-template-columns: repeat(2, 1fr); }
+  .semester-grid { grid-template-columns: 1fr; }
+  .main-nav { gap: 16px; font-size: 0.85rem; }
+  .hero { padding: 64px 0 48px; }
+}
