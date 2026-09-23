@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simple Harmonic Motion — PhysicsPath</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="topic.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a href="index.html" class="brand"><span class="brand-mark">Δ</span> PhysicsPath</a>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="syllabus.html" class="active">Syllabus</a>
+        <a href="chat.html">AI Helper</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap topic-page">
+
+    <p class="topic-crumb"><a href="syllabus.html">Oscillations &amp; Waves</a> / Simple Harmonic Motion</p>
+    <h1>Simple Harmonic Motion</h1>
+
+    <div class="level-switch" role="tablist">
+      <button class="level-btn active" data-level="0">Level 0 · What &amp; Why</button>
+      <button class="level-btn" data-level="1">Level 1 · Exam Ready</button>
+      <button class="level-btn" data-level="2">Level 2 · Beyond Syllabus</button>
+      <button class="level-btn" data-level="3">Level Max · Go Deeper</button>
+    </div>
+
+    <section class="level-content" data-level="0">
+      <p>Push a child on a swing and let go — it doesn't just stop, it swings back and forth,
+      slower and slower, until it settles. That back-and-forth motion, repeating in a
+      predictable rhythm, is the idea behind <strong>Simple Harmonic Motion (SHM)</strong>.</p>
+
+      <p>Here's the key insight: in SHM, something always pulls the object back toward its
+      resting position — and the harder you push it away from that position, the harder it
+      gets pulled back. A guitar string, a mass on a spring, the swing, even the way your
+      phone's speaker cone vibrates to make sound — all of these follow this same simple
+      rule.</p>
+
+      <p><strong>Why it matters:</strong> almost every wave, every vibration, every oscillating
+      signal in electronics eventually gets analyzed by breaking it down into simple harmonic
+      pieces. Understanding SHM is the doorway to understanding waves, sound, light, and AC
+      circuits.</p>
+    </section>
+
+    <section class="level-content" data-level="1" hidden>
+      <h2>Definition</h2>
+      <p>A particle executes Simple Harmonic Motion when the restoring force acting on it is
+      always directed toward a fixed equilibrium point, and is directly proportional to its
+      displacement from that point.</p>
+
+      <div class="formula-box">F = −kx</div>
+      <p>Here, <em>F</em> is the restoring force, <em>x</em> is the displacement from
+      equilibrium, and <em>k</em> is the force constant. The negative sign shows the force
+      always opposes the displacement — it always pulls the object back.</p>
+
+      <h2>The Equation of Motion</h2>
+      <p>Using Newton's second law, F = ma, and substituting a = d²x/dt²:</p>
+      <div class="formula-box">d²x/dt² + ω²x = 0</div>
+      <p>where ω² = k/m. This is the standard differential equation of SHM. Its general
+      solution is:</p>
+      <div class="formula-box">x(t) = A sin(ωt + φ)</div>
+      <p>where <em>A</em> is the amplitude (maximum displacement), ω is the angular frequency,
+      and φ is the phase constant that depends on where the motion starts.</p>
+
+      <h2>Key Characteristics</h2>
+      <ul>
+        <li><strong>Time Period (T):</strong> time for one complete oscillation, T = 2π/ω</li>
+        <li><strong>Frequency (f):</strong> oscillations per second, f = 1/T</li>
+        <li><strong>Velocity:</strong> v = Aω cos(ωt + φ), maximum at the equilibrium position</li>
+        <li><strong>Acceleration:</strong> a = −Aω² sin(ωt + φ), maximum at the extreme positions</li>
+      </ul>
+
+      <h2>Solved Example</h2>
+      <p>A particle in SHM has amplitude 5 cm and time period 2 s. Find its maximum velocity.</p>
+      <p>ω = 2π/T = 2π/2 = π rad/s<br>
+      v<sub>max</sub> = Aω = 5 × π = 15.7 cm/s</p>
+    </section>
+
+    <section class="level-content" data-level="2" hidden>
+      <p>Your syllabus stops at the ideal spring-mass system, but the same F = −kx pattern
+      shows up everywhere once you start looking:</p>
+
+      <ul>
+        <li><strong>Quartz watches and clocks:</strong> a quartz crystal is cut so that it
+        vibrates in SHM at a precise frequency (32,768 Hz) when a voltage is applied — that
+        steady vibration is literally what your watch counts to keep time.</li>
+        <li><strong>Seismographs:</strong> the pendulum inside a seismograph is a SHM system
+        tuned so that ground vibrations from an earthquake get recorded as a wave pattern.</li>
+        <li><strong>AC electrical circuits:</strong> the voltage in an LC (inductor-capacitor)
+        circuit oscillates with the exact same equation as a mechanical spring — energy just
+        swaps between the capacitor's electric field and the inductor's magnetic field instead
+        of between kinetic and potential energy.</li>
+        <li><strong>Molecular vibrations:</strong> atoms bonded in a molecule vibrate around
+        their equilibrium separation approximately like tiny SHM oscillators — this is the
+        basis of infrared spectroscopy, used to identify chemical compounds.</li>
+      </ul>
+    </section>
+
+    <section class="level-content" data-level="3" hidden>
+      <h2>Energy in SHM</h2>
+      <p>Total mechanical energy stays constant, continuously exchanging between kinetic and
+      potential:</p>
+      <div class="formula-box">E = ½kA² = ½mω²A²</div>
+      <p>At the extreme positions, all energy is potential; at equilibrium, all energy is
+      kinetic. This constant total is exactly why an ideal SHM oscillator, once started, never
+      stops — real systems lose energy to friction/resistance, which leads to damped
+      oscillation (a topic worth exploring next).</p>
+
+      <h2>Where SHM Breaks Down</h2>
+      <p>Real oscillators are only approximately harmonic. Push a pendulum too far and F = −kx
+      stops holding — this is why SHM formulas for a pendulum only work for small angles
+      (below about 15°). Beyond that, you're dealing with nonlinear oscillation, which needs
+      more advanced mathematics (elliptic integrals) to solve exactly.</p>
+
+      <h2>The Bigger Picture</h2>
+      <p>SHM is the linear approximation of almost any system sitting in a stable equilibrium.
+      Near any minimum of a potential energy curve, the potential looks approximately
+      parabolic — and a parabolic potential always produces SHM. This is why the same math
+      appears in mechanical springs, electrical circuits, molecular bonds, and even in quantum
+      mechanics (the quantum harmonic oscillator is one of the few problems solvable exactly in
+      Schrödinger's equation, and forms the basis for understanding photon and phonon
+      behavior).</p>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap"><p>Built by an engineering student, for engineering students.</p></div>
+  </footer>
+
+  <script src="topic.js"></script>
+</body>
+  </html>
