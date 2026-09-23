@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="page-title">Topic — PhysicsPath</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="topic.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a href="index.html" class="brand"><span class="brand-mark">Δ</span> PhysicsPath</a>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="syllabus.html" class="active">Syllabus</a>
+        <a href="chat.html">AI Helper</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap topic-page" id="topic-root">
+    <p>Loading...</p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap"><p>Built by an engineering student, for engineering students.</p></div>
+  </footer>
+
+  <script src="physics-syllabus.js"></script>
+  <script src="topic-content.js"></script>
+  <script>
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      const topicId = params.get("t");
+      const root = document.getElementById("topic-root");
+      const data = (typeof TOPIC_CONTENT !== "undefined") ? TOPIC_CONTENT[topicId] : null;
+
+      if (!data) {
+        root.innerHTML = "<h1>Topic not found</h1><p>This topic hasn't been added yet. <a href='syllabus.html'>Back to syllabus</a>.</p>";
+        return;
+      }
+
+      document.title = data.title + " — PhysicsPath";
+
+      const levelNames = ["Level 0 · What & Why", "Level 1 · Exam Ready", "Level 2 · Beyond Syllabus", "Level Max · Go Deeper"];
+
+      let html = "";
+      html += `<p class="topic-crumb"><a href="syllabus.html">${data.moduleTitle}</a> / ${data.title}</p>`;
+      html += `<h1>${data.title}</h1>`;
+
+      html += `<div class="level-switch" role="tablist">`;
+      levelNames.forEach((name, i) => {
+        html += `<button class="level-btn${i === 0 ? " active" : ""}" data-level="${i}">${name}</button>`;
+      });
+      html += `</div>`;
+
+      data.levels.forEach((levelHtml, i) => {
+        html += `<section class="level-content" data-level="${i}"${i === 0 ? "" : " hidden"}>${levelHtml}</section>`;
+      });
+
+      root.innerHTML = html;
+
+      const buttons = root.querySelectorAll(".level-btn");
+      const sections = root.querySelectorAll(".level-content");
+      buttons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const target = btn.getAttribute("data-level");
+          buttons.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          sections.forEach((s) => { s.hidden = (s.getAttribute("data-level") !== target); });
+          window.scrollTo({ top: root.offsetTop - 20, behavior: "smooth" });
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
