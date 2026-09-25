@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Syllabus — PhysicsPath</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .syllabus-page { padding: 48px 24px 96px; }
+  .module-block { margin-bottom: 40px; }
+  .module-block h2 { font-size: 1.3rem; margin-bottom: 4px; }
+  .module-block .module-label { color: var(--text-dim); font-size: 0.85rem; margin-bottom: 16px; }
+  .topic-list { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--line); }
+  .topic-list li { border-bottom: 1px solid var(--line); }
+  .topic-list a, .topic-list span {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 14px 4px; font-size: 0.95rem;
+  }
+  .topic-list a { color: var(--text); }
+  .topic-list a:hover { color: var(--accent); }
+  .topic-list .soon { color: var(--text-dim); }
+  .status-tag {
+    font-size: 0.7rem; padding: 2px 8px; border-radius: 100px; white-space: nowrap; margin-left: 12px;
+  }
+  .status-ready { background: #2A3B2E; color: #8FD19E; }
+  .status-soon { background: #2C3049; color: var(--text-dim); }
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a href="index.html" class="brand"><span class="brand-mark">Δ</span> PhysicsPath</a>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="syllabus.html" class="active">Syllabus</a>
+        <a href="chat.html">AI Helper</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap syllabus-page">
+    <h1>Full Syllabus</h1>
+    <p style="color:var(--text-dim); max-width:560px; margin-bottom:40px;">
+      Every topic, grouped by module. Tap any topic to open it — each one has
+      four levels, from plain-language basics to beyond-syllabus depth.
+    </p>
+    <div id="syllabus-list"><p>Loading...</p></div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap"><p>Built by an engineering student, for engineering students.</p></div>
+  </footer>
+
+  <script src="physics-syllabus.js"></script>
+  <script src="topic-content.js"></script>
+  <script>
+    (function () {
+      const container = document.getElementById("syllabus-list");
+      if (typeof PHYSICS_SYLLABUS === "undefined") { return; }
+      const content = (typeof TOPIC_CONTENT !== "undefined") ? TOPIC_CONTENT : {};
+
+      let html = "";
+      PHYSICS_SYLLABUS.forEach(function (module) {
+        html += `<div class="module-block" id="${module.id}">`;
+        html += `<h2>${module.title}</h2>`;
+        html += `<p class="module-label">${module.semesterLabel}</p>`;
+        html += `<ul class="topic-list">`;
+        module.topics.forEach(function (topic) {
+          const hasPage = !!topic.page;
+          const hasContent = topic.slug && content[topic.slug];
+          if (hasPage || hasContent) {
+            const href = hasPage ? topic.page : ("topic.html?t=" + topic.slug);
+            html += `<li><a href="${href}">${topic.name}<span class="status-tag status-ready">Ready</span></a></li>`;
+          } else {
+            html += `<li><span class="soon">${topic.name}<span class="status-tag status-soon">Coming soon</span></span></li>`;
+          }
+        });
+        html += `</ul></div>`;
+      });
+
+      container.innerHTML = html;
+    })();
+  </script>
+</body>
+</html>
